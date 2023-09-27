@@ -22,8 +22,8 @@ services:
       - nginx-network
     volumes:
       - ./node:/usr/src/app
-    ports:
-      - "3000:3000"
+    depends_on:
+      - db
 
   db:
     image: mysql:5.7
@@ -31,12 +31,12 @@ services:
     container_name: db
     restart: always
     tty: true
-    volumes:
+    volumes: 
       - ./mysql:/var/lib/mysql
-    environment:
+    environment: 
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
-    networks:
+    networks: 
       - nginx-network
 
 networks:
