@@ -1,3 +1,5 @@
 #!/bin/bash
 
-node server.js
+npm install
+
+npm run start
